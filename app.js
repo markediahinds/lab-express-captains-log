@@ -12,4 +12,8 @@ app.get('/', (req, res) => {
     res.send(`Welcome to M.O.K.A Captain Logs`)
 })
 
+app.get('*', (req, res) => {
+    res.status.json({error: `404 Page Not Found`})
+})
+
 module.exports = app
