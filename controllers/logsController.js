@@ -67,6 +67,23 @@ logs.post('/', (req, res) => {
            
 // less resistant to mistakes, see their value, see how they support my learning and the actions I take - Coach Joshua
 
+// THIS is a PUT request aka method that UPDATES UPDATES UPDATES ONE SPECIFIC ELEMENT AT A TIME
+logs.put('/:arrayIndex', (req, res) => { // our two params are the arr idx and the callback func which the params are the incoming req and the outgoing res
+    const { arrayIndex } = req.params // when focusing on one specific element, we always extract the arr idx from the param in the req. Req is a big obj, params is another obj (and key of req), .params list the params in the url 
+    logsArray[arrayIndex] = req.body // we grab the specific element (within our arr, each ele has a specific idx #) (____Array grabs the entire data set we have, the entire arr we have | while the [arrayIndex] refers to that specific INDEX aka ELEMENT within the arr).  we grab that specific ele and update it's body with the updated body we receive (or by us sending an updated body to ourcelves via Postman). 
+    res.status(200).json(logsArray[arrayIndex]) // then we return/render a '200' status, along with the updated element [we updated the body of the ele]
+})
+
+logs.delete('/:arrayIndex', (req, res) => {
+    const { arrayIndex } = req.params
+    if(logsArray[arrayIndex]) {
+        logsArray.splice(arrayIndex, 1)
+        res.json({ message: `You've successfully deleted log: `}) // name of log or entire obj 
+    } else {
+        res.status(404).json({ error: `Log: Not Found`}) // Log captainName
+    }
+})
+
 module.exports = logs
 
 
