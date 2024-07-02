@@ -1,9 +1,11 @@
 const express = require('express')
+const cors = require('cors')
 
 const logsController = require('./controllers/logsController')
 const v2logsController = require('./v2/controllers/logsController')
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 app.use('/logs', logsController)
