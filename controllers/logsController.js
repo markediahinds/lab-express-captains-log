@@ -6,18 +6,18 @@ logs.get('/', (req, res) => {
     // res.json(logsArray)
     // console.log(req.query)
     const {  order, mistakes } = req.query
-    console.log(order, mistakes)
+    // console.log(order, mistakes)
     const filteredArr = logsArray.filter((log) =>
         log.mistakesWereMadeToday.toString() == mistakes) // converting into numbers, and then comparing numbers | true 1, false 0 | string NAN [if str was a num, it would find match]
     // res.json(filteredArr)
 
     if(order == 'asc') {
         logsArray.sort((a,b) => a.captainName.localeCompare(b.captainName))
-        } else if(order == 'desc') {
+    } else if(order == 'desc') {
             logsArray.sort((a,b) => b.captainName.localeCompare(a.captainName))
-        }
-        res.json(logsArray)
-    })
+    }
+    res.json(logsArray)
+ })
 
 logs.get('/:arrayIndex', (req, res) => {
     const { arrayIndex } = req.params
