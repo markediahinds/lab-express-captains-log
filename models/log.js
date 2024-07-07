@@ -83,7 +83,7 @@ module.exports = [
       yearsAlive: 84,
       culture: "Polish",
       timePeriod: "20th century",
-      is_bornIntoMoney: false,
+      is_bornIntoMoney: true,
       title: "Do it like it's never been Done before",
       whyPiracy: "Not piracy per se, but she was a naval engineer and sailor.  She's the first woman to sail around the world solo. *Note* Naomi James completed the circumnavigation in 272 days, yet arrived 2 months after Krystyna, who took 401 days.",
       somethingILoveAboutHer: "Storms, equipment failures, and even a collision with a whale that damaged her boat’s hull. She persevered and completed the voyage in just over a year.",
